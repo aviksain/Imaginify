@@ -27,14 +27,16 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.16.1",
     "@types/qs": "^6.9.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
+    "prisma": "^5.18.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
