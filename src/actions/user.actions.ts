@@ -1,11 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
-import { PrismaClient } from "@prisma/client";
 import { handleError } from "../lib/utils";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
