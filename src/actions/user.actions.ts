@@ -35,12 +35,18 @@ export async function getUserById(userId: string) {
 // UPDATE
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
+    const existingUser = await prisma.user.findUnique({
+      where: { clerkId },
+    });
+
+    if (!existingUser) {
+      throw new Error("User not found, update failed");
+    }
+
     const updatedUser = await prisma.user.update({
       where: { clerkId },
       data: user,
     });
-
-    if (!updatedUser) throw new Error("User update failed");
 
     return JSON.parse(JSON.stringify(updatedUser));
   } catch (error) {
