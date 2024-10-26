@@ -1,6 +1,14 @@
+import Image from "next/image";
+// import logo from '/assets/images/logo.png';
+
 function Logo() {
   return (
-    <p className="italic font-bold text-2xl logo">Imaginify</p>
+    <Image
+      src='/assets/images/logo.png'
+      alt="Logo"
+      width={200}
+      height={300}
+    />
   )
 }
 export default Logo

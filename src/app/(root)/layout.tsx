@@ -1,4 +1,5 @@
 import { Sidebar, MobileNav } from "@/components";
+import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 
 type dataType = {
@@ -7,7 +8,7 @@ type dataType = {
 
 function HomeLayout({ children }: dataType) {
   return (
-    <main className="flex min-h-screen w-full flex-col bg-white lg:flex-row">
+    <main className="flex min-h-screen w-full flex-col lg:flex-row bg-[#181A1B] text-white">
       <Sidebar />
       <MobileNav/>
       <div className="mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10">
@@ -15,6 +16,7 @@ function HomeLayout({ children }: dataType) {
           {children}
         </div>
       </div>
+      <Toaster />
     </main>
   );
 }

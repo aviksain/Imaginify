@@ -11,7 +11,7 @@ import { LogIn } from "lucide-react";
 function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex">
+    <aside className="hidden h-screen w-72 bg-[#374151] p-5 shadow-md shadow-purple-200/50 lg:flex rounded-2xl">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="flex items-center gap-2 md:py-2">
           <Logo />
@@ -24,8 +24,8 @@ function Sidebar() {
                 return (
                   <li
                     key={link.route}
-                    className={`hidden w-full flex-col items-start gap-2 md:flex group rounded-xl px-4 text-black font-medium	 ${
-                      isActive ? "bg-purple-400" : ""
+                    className={`hidden w-full flex-col items-start gap-2 md:flex group rounded-xl px-4 text-white font-medium	 ${
+                      isActive ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br" : ""
                     }`}
                   >
                     <div className="flex justify-around">
@@ -53,7 +53,7 @@ function Sidebar() {
                 return (
                   <li
                     key={link.route}
-                    className={`hidden w-full flex-col items-start gap-2 md:flex group rounded-xl px-4 text-black font-medium	 ${
+                    className={`hidden w-full flex-col items-start gap-2 md:flex group rounded-xl px-4 text-white font-medium	 ${
                       isActive ? "bg-purple-400" : ""
                     }`}
                   >

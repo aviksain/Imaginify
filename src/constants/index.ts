@@ -6,27 +6,27 @@ export const navLinks = [
   },
   {
     label: "Image Restore",
-    route: "/transformations/add/restore",
+    route: "/transformation/add/restore",
     icon: "/assets/icons/image-restore.svg",
   },
   {
     label: "Generative Fill",
-    route: "/transformations/add/fill",
+    route: "/transformation/add/fill",
     icon: "/assets/icons/stars.svg",
   },
   {
     label: "Object Remove",
-    route: "/transformations/add/remove",
+    route: "/transformation/add/remove",
     icon: "/assets/icons/eraser.svg",
   },
   {
     label: "Object Recolor",
-    route: "/transformations/add/recolor",
+    route: "/transformation/add/recolor",
     icon: "/assets/icons/paint-roller.svg",
   },
   {
     label: "Background Remove",
-    route: "/transformations/add/removeBackground",
+    route: "/transformation/add/removeBackground",
     icon: "/assets/icons/image-minus.svg",
   },
   {
@@ -61,3 +61,47 @@ export const aspectRatioOptions = {
     height: 1778,
   },
 };
+
+export const transformationTypes = {
+  restore: {
+    type: "restore",
+    title: "Restore Image",
+    subtitle: "Refine images by removing noise and imperfections",
+    config: { restore: true },
+    icon: "image.svg",
+  },
+  removeBackground: {
+    type: "removeBackground",
+    title: "Background Remove",
+    subtitle: "Removes the background of the image using AI",
+    config: { removeBackground: true },
+    icon: "image-minus.svg",
+  },
+  fill: {
+    type: "fill",
+    title: "Generative Fill",
+    subtitle: "Enhance an image's dimensions using AI outpainting",
+    config: { fillBackground: true },
+    icon: "stars.svg",
+  },
+  remove: {
+    type: "remove",
+    title: "Object Remove",
+    subtitle: "Identify and eliminate objects from images",
+    config: {
+      remove: { prompt: "", removeShadow: true, multiple: true },
+    },
+    icon: "scan.svg",
+  },
+  recolor: {
+    type: "recolor",
+    title: "Object Recolor",
+    subtitle: "Identify and recolor objects from the image",
+    config: {
+      recolor: { prompt: "", to: "", multiple: true },
+    },
+    icon: "filter.svg",
+  },
+};
+
+export const creditFee = 1;

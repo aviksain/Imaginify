@@ -20,11 +20,10 @@ import { Logo } from ".";
 function MobileNav() {
   const pathname = usePathname();
   return (
-    <header className="flex justify-between items-center fixed h-16 w-full border-b-4 border-purple-100 bg-white p-5 lg:hidden">
+    <header className="flex justify-between items-center fixed h-16 w-full border-b-4 bg-[#374151] p-5 lg:hidden">
       <Link href="/" className="flex items-center gap-2 md:py-2">
         <Logo/>
       </Link>
-
       <nav className="flex gap-2">
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
@@ -32,7 +31,7 @@ function MobileNav() {
             <SheetTrigger>
               <AlignJustify />
             </SheetTrigger>
-            <SheetContent className="focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important sm:w-64">
+            <SheetContent className="bg-[#374151] text-white focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important sm:w-64">
               <Logo/>
               <ul className="mt-8 flex w-full flex-col items-start gap-5">
               {navLinks.map((link) => {
