@@ -223,15 +223,15 @@ function TransformationForm({
                 }
                 value={field.value}
               >
-                <SelectTrigger className="w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-dark-600 p-16-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important">
+                <SelectTrigger className="w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-dark-600 font-semibold text-[16px] leading-[140%] disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important bg-[#444449]">
                   <SelectValue placeholder="Select Size" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-[#444449]">
                   {Object.keys(aspectRatioOptions).map((key) => (
                     <SelectItem
                       key={key}
                       value={key}
-                      className="py-3 cursor-pointer hover:bg-purple-100"
+                      className="py-3 text-white bg-[#444449] cursor-pointer hover:bg-[#4f4f56]"
                     >
                       {aspectRatioOptions[key as AspectRatioKey].label}
                     </SelectItem>
@@ -255,7 +255,7 @@ function TransformationForm({
               render={({ field }) => (
                 <Input
                   value={field.value}
-                  className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-dark-600 disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important"
+                  className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-dark-600 disabled:opacity-100 font-semibold text-[16px] leading-[140%] h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important"
                   onChange={(e) =>
                     onInputChangeHandler(
                       "prompt",
@@ -278,7 +278,7 @@ function TransformationForm({
                 render={({ field }) => (
                   <Input
                     value={field.value}
-                    className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-dark-600 disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important"
+                    className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-dark-600 disabled:opacity-100 font-semibold text-[16px] leading-[140%] h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important"
                     onChange={(e) =>
                       onInputChangeHandler(
                         "color",

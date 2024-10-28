@@ -29,7 +29,7 @@ const Credits = async () => {
             <li key={plan.name} className="w-full rounded-[16px] border-2 border-purple-200/20 bg-[#374151] text-white p-8 shadow-xl shadow-purple-200/20 lg:max-w-none">
               <div className="flex justify-center items-center flex-col gap-3">
                 <Image src={plan.icon} alt="check" width={50} height={50} />
-                <p className="font-semibold text-[20px] leading-[140%] mt-2 text-purple-500">
+                <p className="font-semibold text-[20px] leading-[140%] mt-2 text-blue-400">
                   {plan.name}
                 </p>
                 <p className="text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">${plan.price}</p>

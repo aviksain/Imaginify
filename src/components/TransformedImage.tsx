@@ -72,7 +72,7 @@ function TransformedImage({
             )}
           </div>
         ) : (
-          <div className="flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner">
+          <div className="flex justify-center items-center font-semibold text-[20px] leading-[140%] h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-[#374151] shadow-inner">
             Transformed Image
           </div>
         )}

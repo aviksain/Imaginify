@@ -34,7 +34,7 @@ export const CustomField = ({
       render={({ field }) => (
         <FormItem className={className}>
           {formLabel && <FormLabel>{formLabel}</FormLabel>}
-          <FormControl>{render({ field })}</FormControl>
+          <FormControl className="bg-[#444449] rounded-[16px] px-4 py-3 h-[40px] md:h-[45px] border border-transparent font-semibold text-[16px] leading-[140%]">{render({ field })}</FormControl>
           <FormMessage />
         </FormItem>
       )}
