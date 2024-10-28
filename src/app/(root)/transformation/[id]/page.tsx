@@ -91,12 +91,12 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
               type="button"
               className="bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl bg-cover rounded-full py-4 px-6 p-16-semibold h-[50px] w-full md:h-[54px] capitalize"
             >
-              <Link href={`/transformation/${image._id}/update`}>
+              <Link href={`/transformation/${image.id}/update`}>
                 Update Image
               </Link>
             </Button>
 
-            <DeleteConfirmation imageId={image._id} />
+            <DeleteConfirmation imageId={image.id} />
           </div>
         )}
       </section>

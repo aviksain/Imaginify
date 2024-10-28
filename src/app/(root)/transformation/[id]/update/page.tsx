@@ -1,9 +1,39 @@
-import React from 'react'
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-function TansformationUpdate() {
+import Header from "@/components/Header";
+import TransformationForm from "@/components/TransformationForm";
+import { transformationTypes } from "@/constants";
+import { getUserById } from "@/actions/user.actions";
+import { getImageById } from "@/actions/image.actions";
+
+const Page = async ({ params: { id } }: SearchParamProps) => {
+  const { userId } = await auth();
+
+  if (!userId) redirect("/sign-in");
+
+  const user = await getUserById(userId);
+  const image = await getImageById(id);
+
+  const transformation =
+    transformationTypes[image.transformationType as TransformationTypeKey];
+
   return (
-    <div>Tansformation Update Page</div>
-  )
-}
+    <>
+      <Header title={transformation.title} subtitle={transformation.subtitle} />
 
-export default TansformationUpdate
+      <section className="mt-10">
+        <TransformationForm
+          action="Update"
+          userId={user.id}
+          type={image.transformationType as TransformationTypeKey}
+          creditBalance={user.creditBalance}
+          config={image.config}
+          data={image}
+        />
+      </section>
+    </>
+  );
+};
+
+export default Page;

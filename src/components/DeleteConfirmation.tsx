@@ -15,10 +15,11 @@ import {
 } from "@/components/ui/alert-dialog";
 import { deleteImage } from "@/actions/image.actions";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation'
 
 export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
   const [isPending, startTransition] = useTransition();
-
+  const router = useRouter();
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild className="w-full rounded-full">
@@ -31,7 +32,7 @@ export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
         </Button>
       </AlertDialogTrigger>
 
-      <AlertDialogContent className="flex flex-col gap-10">
+      <AlertDialogContent className="bg-[#181A1B] text-white *:flex flex-col gap-10">
         <AlertDialogHeader>
           <AlertDialogTitle>
             Are you sure you want to delete this image?
@@ -42,12 +43,13 @@ export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="text-black hover:bg-gray-200">Cancel</AlertDialogCancel>
           <AlertDialogAction
             className="border bg-red-500 text-white hover:bg-red-600"
             onClick={() =>
               startTransition(async () => {
                 await deleteImage(imageId);
+                router.push('/');
               })
             }
           >

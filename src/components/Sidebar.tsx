@@ -54,7 +54,7 @@ function Sidebar() {
                   <li
                     key={link.route}
                     className={`hidden w-full flex-col items-start gap-2 md:flex group rounded-xl px-4 text-white font-medium	 ${
-                      isActive ? "bg-purple-400" : ""
+                      isActive ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br" : ""
                     }`}
                   >
                     <div className="flex justify-around">
@@ -75,14 +75,14 @@ function Sidebar() {
                   </li>
                 );
               })}
-              <li className="flex justify-center items-center cursor-pointer gap-2 p-4">
+              <li className="flex text-white justify-center items-center cursor-pointer gap-2 p-4">
                 <UserButton afterSignOutUrl="/" showName />
               </li>
             </ul>
           </SignedIn>
 
           <SignedOut>
-            <Button asChild className="py-4 font-medium bg-transparent hover:bg-purple-400 text-black px-6 flex justify-center items-center gap-3 rounded-xl p-16-semibold focus-visible:ring-offset-0 focus-visible:ring-transparent !important bg-purple-gradient bg-cover">
+            <Button asChild className="py-4 font-medium bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br text-white px-6 flex justify-center items-center gap-3 rounded-xl p-16-semibold focus-visible:ring-offset-0 focus-visible:ring-transparent !important bg-purple-gradient bg-cover">
               
               <Link href="/sign-in"><LogIn />Login</Link>
             </Button>

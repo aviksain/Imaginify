@@ -8,6 +8,12 @@ const isProtectedRoute = createRouteMatcher([
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
+  const currentUrl = new URL(req.url);
+  console.log("Current URL:", currentUrl.pathname);
+  console.log("Public Route Match:", isProtectedRoute(req));
+  // console.log("Public API Route Match:", isPublicApiRoute(req));
+  console.log("User ID:", userId);
+
 
   if (!userId && isProtectedRoute(req)) {
     // Add custom logic to run before redirecting

@@ -173,7 +173,7 @@ function TransformationForm({
           const updatedImage = await updateImage({
             image: {
               ...imageData,
-              id: data._id,
+              id: data.id,
             },
             userId,
             path: `/transformation/${data.id}`,
