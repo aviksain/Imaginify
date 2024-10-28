@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import {SignedIn}  from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -26,14 +26,21 @@ const Credits = async () => {
       <section>
         <ul className="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3">
           {plans.map((plan) => (
-            <li key={plan.name} className="w-full rounded-[16px] border-2 border-purple-200/20 bg-[#374151] text-white p-8 shadow-xl shadow-purple-200/20 lg:max-w-none">
+            <li
+              key={plan.name}
+              className="w-full rounded-[16px] border-2 border-purple-200/20 bg-[#374151] text-white p-8 shadow-xl shadow-purple-200/20 lg:max-w-none"
+            >
               <div className="flex justify-center items-center flex-col gap-3">
                 <Image src={plan.icon} alt="check" width={50} height={50} />
                 <p className="font-semibold text-[20px] leading-[140%] mt-2 text-blue-400">
                   {plan.name}
                 </p>
-                <p className="text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">${plan.price}</p>
-                <p className="font-normal text-[16px] leading-[140%]">{plan.credits} Credits</p>
+                <p className="text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">
+                  ${plan.price}
+                </p>
+                <p className="font-normal text-[16px] leading-[140%]">
+                  {plan.credits} Credits
+                </p>
               </div>
 
               {/* Inclusions */}
@@ -51,7 +58,9 @@ const Credits = async () => {
                       width={24}
                       height={24}
                     />
-                    <p className="font-normal text-[16px] leading-[140%]">{inclusion.label}</p>
+                    <p className="font-normal text-[16px] leading-[140%]">
+                      {inclusion.label}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -66,7 +75,7 @@ const Credits = async () => {
                     plan={plan.name}
                     amount={plan.price}
                     credits={plan.credits}
-                    buyerId={user._id}
+                    buyerId={user.id}
                   />
                 </SignedIn>
               )}
