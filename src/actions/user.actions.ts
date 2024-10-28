@@ -11,6 +11,11 @@ export async function createUser(user: CreateUserParams) {
       data: user,
     });
 
+    if(!newUser) {
+      console.error("Failed to create user:", user);
+      return new Response("Failed to create user", { status: 500 });
+    }
+
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     handleError(error);
@@ -82,7 +87,9 @@ export async function updateCredits(userId: string, creditFee: number) {
         id: userId,
       },
       data: {
-        creditBalance: creditFee,
+        creditBalance: {
+          increment: creditFee,
+        },
       },
     });
 

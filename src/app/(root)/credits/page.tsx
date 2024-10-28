@@ -36,7 +36,7 @@ const Credits = async () => {
                   {plan.name}
                 </p>
                 <p className="text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">
-                  ${plan.price}
+                  ₹{plan.price}
                 </p>
                 <p className="font-normal text-[16px] leading-[140%]">
                   {plan.credits} Credits
