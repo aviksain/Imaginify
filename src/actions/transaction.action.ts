@@ -44,9 +44,15 @@ export async function createTransaction(transaction: CreateTransactionParams) {
       }
     });
 
-    const user = await getUserById(transaction.buyerId);
+    const user = await prisma.user.findUnique({
+      where: { id: transaction.buyerId },
+    });
 
-    const updatedCredits = user.creditBalance + transaction.credits; 
+    if (!user) {
+      throw new Error(`User with ID ${transaction.buyerId} not found`);
+    }
+
+    let updatedCredits = (user.creditBalance ?? 0) + transaction.credits; 
 
     await updateCredits(transaction.buyerId, updatedCredits);
 
