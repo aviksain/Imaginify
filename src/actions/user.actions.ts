@@ -87,9 +87,7 @@ export async function updateCredits(userId: string, creditFee: number) {
         id: userId,
       },
       data: {
-        creditBalance: {
-          increment: creditFee,
-        },
+        creditBalance:  creditFee
       },
     });
 

@@ -3,7 +3,7 @@ import { handleError } from '@/lib/utils';
 import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
 import prisma from "@/lib/prisma";
-import { updateCredits } from './user.actions';
+import { getUserById, updateCredits } from './user.actions';
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -44,7 +44,11 @@ export async function createTransaction(transaction: CreateTransactionParams) {
       }
     });
 
-    await updateCredits(transaction.buyerId, transaction.credits);
+    const user = await getUserById(transaction.buyerId);
+
+    const updatedCredits = user.creditBalance + transaction.credits; 
+
+    await updateCredits(transaction.buyerId, updatedCredits);
 
     return JSON.parse(JSON.stringify(newTransaction));
   }
